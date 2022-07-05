@@ -16,4 +16,8 @@ class Warehouse extends Model
     public function allEmployees(){
         return $this->hasMany('App\Models\Employee');
     }
+
+    public function allproducts(){
+        return $this->belongsToMany('App\Models\Product');
+    }
 }

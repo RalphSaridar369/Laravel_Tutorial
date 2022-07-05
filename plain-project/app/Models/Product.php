@@ -15,4 +15,8 @@ class Product extends Model
         'category id'
     ];
 
+
+    public function allWarehouse(){
+        return $this->belongsToMany('App\Models\Warehouse');
+    }
 }
