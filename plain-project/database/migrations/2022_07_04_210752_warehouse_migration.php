@@ -17,7 +17,8 @@ return new class extends Migration
         Schema::create('warehouse',function(Blueprint $table){
             $table->id();
             $table->string('warehouse name');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->nullable()->useCurrentOnUpdate();
         });
 
         Schema::table('employee',function(Blueprint $table){
