@@ -9,6 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
+    public $table = 'product';
     public $fillable = [
         'product name',
         'price',

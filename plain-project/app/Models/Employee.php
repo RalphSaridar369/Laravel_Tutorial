@@ -10,6 +10,7 @@ class Employee extends Model
     use HasFactory;
 
     public $timestamps = true;
+    public $table = 'employee';
 
     protected $fillable = [
         'email',

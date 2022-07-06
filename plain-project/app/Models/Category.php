@@ -9,6 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
+    public $table = 'category';
     public $fillable = [
         'category name'
     ];

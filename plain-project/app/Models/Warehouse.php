@@ -9,6 +9,7 @@ class Warehouse extends Model
 {
     use HasFactory;
 
+    public $table = 'warehouse';
     public $fillable = [
     'warehouse name',
     ];
