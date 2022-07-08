@@ -20,7 +20,7 @@ class CategoryController extends Controller
         if(!$cat->find($req->route('id'))){
         return [
             'status' => 'failed',
-            'message' => "user doesn't exist"
+            'message' => "category doesn't exist"
         ];
         }
         else{

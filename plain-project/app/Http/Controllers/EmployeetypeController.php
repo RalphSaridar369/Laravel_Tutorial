@@ -18,7 +18,7 @@ class EmployeetypeController extends Controller
         if (!$emptype->find($req->route('id'))) {
             return [
                 'status' => 'failed',
-                'message' => "user doesn't exist"
+                'message' => "type doesn't exist"
             ];
         } else {
             $emptype->destroy($req->route('id'));

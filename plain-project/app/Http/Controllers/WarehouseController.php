@@ -22,7 +22,7 @@ class WarehouseController extends Controller
         if (!$warehouse->find($req->route('id'))) {
             return [
                 'status' => 'failed',
-                'message' => "user doesn't exist"
+                'message' => "warehouse doesn't exist"
             ];
         } else {
             $warehouse->destroy($req->route('id'));

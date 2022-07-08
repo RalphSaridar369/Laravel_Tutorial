@@ -22,4 +22,8 @@ class Product extends Model
     public function allWarehouse(){
         return $this->belongsToMany('App\Models\Warehouse');
     }
+
+    public function getCategory(){
+        return $this->belongsTo('App\Models\Category');
+    }
 }
