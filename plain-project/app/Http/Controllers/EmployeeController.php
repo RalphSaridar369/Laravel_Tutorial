@@ -9,22 +9,22 @@ class EmployeeController extends Controller
 {
     //
     function getAllEmployees(Employee $emp){
-        return $emp->all();
+        return $emp->with('employeeType','warehouse')->get();
     }
 
-    function getEmployeeById(Employee $emp,Request $req){
-        return $emp->findOrFail($req->route('id'));
+    function getEmployeeById(Employee $emp,$id){
+        return $emp->with('employeeType','warehouse')->where('id','=',$id)->get();
     }
     
-    function deleteEmployee(Employee $emp,Request $req){
-        if(!$emp->find($req->route('id'))){
+    function deleteEmployee(Employee $emp,$id){
+        if(!$emp->where('id','=',$id)){
         return [
             'status' => 'failed',
             'message' => "user doesn't exist"
         ];
         }
         else{
-            $emp->destroy($req->route('id'));
+            $emp->destroy($id);
             return [
                 'status' => 'successful',
                 'message' => 'deleted successfully'

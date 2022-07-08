@@ -99,6 +99,11 @@ Route::group(
             'getAllEmployeeTypes'
         ]);
         
+        Route::get('/{id}',[
+            EmployeetypeController::class,
+            'getAllEmployeesByType'
+        ]);
+
         Route::delete('/{id}',[
             EmployeetypeController::class,
             'deleteEmployeeType'

@@ -10,18 +10,22 @@ class EmployeetypeController extends Controller
     //
     function getAllEmployeeTypes(EmployeeType $emptype)
     {
-        return $emptype->all();
+        return $emptype->with('users')->get();
     }
 
-    function deleteEmployeeType(EmployeeType $emptype, Request $req)
+    function getAllEmployeesByType(EmployeeType $emptype,$id){
+        return $emptype->with('users')->where('id','=',$id)->get();
+    }
+
+    function deleteEmployeeType(EmployeeType $emptype, $id)
     {
-        if (!$emptype->find($req->route('id'))) {
+        if (!$emptype->where('id','=',$id)) {
             return [
                 'status' => 'failed',
                 'message' => "type doesn't exist"
             ];
         } else {
-            $emptype->destroy($req->route('id'));
+            $emptype->destroy($id);
             return [
                 'status' => 'successful',
                 'message' => 'deleted successfully'

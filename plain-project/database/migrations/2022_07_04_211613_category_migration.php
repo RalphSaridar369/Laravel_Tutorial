@@ -16,13 +16,13 @@ return new class extends Migration
         //
         Schema::create('category',function(Blueprint $table){
             $table->id();
-            $table->string('category name');
+            $table->string('category_name');
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::table('product',function(Blueprint $table){
-            $table->foreign('category id')->references('id')->on('category');
+            $table->foreign('category_id')->references('id')->on('category');
         });
     }
 

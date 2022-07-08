@@ -13,7 +13,7 @@ class EmployeeType extends Model
     
     public $table = 'employeetype';
     protected $fillable = [
-        'employee type'
+        'employee_type'
     ];
 
     public function users(){

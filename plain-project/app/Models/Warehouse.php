@@ -13,7 +13,7 @@ class Warehouse extends Model
 
     public $table = 'warehouse';
     public $fillable = [
-    'warehouse name',
+    'warehouse_name',
     ];
 
     public function allEmployees(){

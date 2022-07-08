@@ -10,22 +10,22 @@ class WarehouseController extends Controller
     //
     function getAllWarehouses(Warehouse $warehouse)
     {
-        return $warehouse->all();
+        return $warehouse->with('allEmployees')->get();
     }
     
-    function getWarehouseById(Warehouse $warehouse,Request $req){
-        return $warehouse->findOrFail($req->route('id'));
+    function getWarehouseById(Warehouse $warehouse, $id){
+        return $warehouse->with('allEmployees')->where('id','=',$id)->get();
     }
 
-    function deleteWarehouse(Warehouse $warehouse, Request $req)
+    function deleteWarehouse(Warehouse $warehouse, $id)
     {
-        if (!$warehouse->find($req->route('id'))) {
+        if (!$warehouse->where('id','=',$id)) {
             return [
                 'status' => 'failed',
                 'message' => "warehouse doesn't exist"
             ];
         } else {
-            $warehouse->destroy($req->route('id'));
+            $warehouse->destroy($id);
             return [
                 'status' => 'successful',
                 'message' => 'deleted successfully'

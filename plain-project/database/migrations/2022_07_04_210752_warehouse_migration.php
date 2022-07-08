@@ -16,13 +16,13 @@ return new class extends Migration
         //
         Schema::create('warehouse',function(Blueprint $table){
             $table->id();
-            $table->string('warehouse name');
+            $table->string('warehouse_name');
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::table('employee',function(Blueprint $table){
-            $table->foreign('warehouse id')->references('id')->on('warehouse');
+            $table->foreign('warehouse_id')->references('id')->on('warehouse');
         });
     }
 

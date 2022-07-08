@@ -15,7 +15,7 @@ class Product extends Model
     public $fillable = [
         'product name',
         'price',
-        'category id'
+        'category_id'
     ];
 
 
@@ -23,7 +23,7 @@ class Product extends Model
         return $this->belongsToMany('App\Models\Warehouse');
     }
 
-    public function getCategory(){
-        return $this->belongsTo('App\Models\Category');
+    public function category(){
+        return $this->belongsTo('App\Models\Category','category_id');
     }
 }

@@ -13,7 +13,7 @@ class Category extends Model
 
     public $table = 'category';
     public $fillable = [
-        'category name'
+        'category_name'
     ];
 
     public function getAllProducts(){

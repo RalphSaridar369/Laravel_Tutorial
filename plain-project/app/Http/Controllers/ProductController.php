@@ -10,27 +10,23 @@ class ProductController extends Controller
     //
     function getAllProducts(Product $product)
     {
-        return $product->all();
+        return $product->with('category')->get();
+
     }
     
-    function getProductById(Product $product,Request $req){
-        // return $product->findOrFail($req->route('id'));
-        // return $product->findOrFail($req->route('id'))->pivot->id;
-        // $Product = $product->join('category','product.category id','=','category.id')
-        //                    ->get(['product.*', 'category.*']);
-        // return $Product;
-        return $product->with('getCategory')->where('id','=',$req->route('id'))->get();
+    function getProductById(Product $product,$id){
+        return $product->with('category')->where('id','=',$id)->get();
     }
 
-    function deleteProduct(Product $product, Request $req)
+    function deleteProduct(Product $product, $id)
     {
-        if (!$product->find($req->route('id'))) {
+        if (!$product->where('id','=',$id)) {
             return [
                 'status' => 'failed',
                 'message' => "product doesn't exist"
             ];
         } else {
-            $product->destroy($req->route('id'));
+            $product->destroy($id);
             return [
                 'status' => 'successful',
                 'message' => 'deleted successfully'

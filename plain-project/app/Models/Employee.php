@@ -16,12 +16,20 @@ class Employee extends Model
 
     protected $fillable = [
         'email',
-        'employee type id',
-        'warehouse id',
+        'employee type_id',
+        'warehouse_id',
     ];
 
     protected $hidden = [
         'password'
     ];
+
+    public function employeeType(){
+        return $this->belongsTo('App\Models\EmployeeType');
+    }
+
+    public function warehouse(){
+        return $this->belongsTo('App\Models\Warehouse');
+    }
 
 }

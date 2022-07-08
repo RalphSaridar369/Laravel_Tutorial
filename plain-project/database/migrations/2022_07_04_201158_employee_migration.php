@@ -18,8 +18,8 @@ return new class extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('password');
-            $table->unsignedBigInteger('employee type id');
-            $table->unsignedBigInteger('warehouse id');
+            $table->unsignedBigInteger('employee_type_id');
+            $table->unsignedBigInteger('warehouse_id');
             $table->timestamps();
             $table->softDeletes();
 

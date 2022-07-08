@@ -17,14 +17,14 @@ return new class extends Migration
         
         Schema::create('employeetype', function (Blueprint $table) {
             $table->id();
-            $table->string('employee type');
+            $table->string('employee_type');
             $table->softDeletes();
             $table->timestamps();
         });
 
         
         Schema::table('employee', function(Blueprint $table){
-            $table->foreign('employee type id')->references('id')->on('employeetype');
+            $table->foreign('employee_type_id')->references('id')->on('employeetype');
         });
 
     }

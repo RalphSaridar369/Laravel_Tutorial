@@ -16,19 +16,19 @@ return new class extends Migration
         //
         Schema::create('hasProducts',function(Blueprint $table){
             $table->id();
-            $table->unsignedBigInteger('warehouse id');
-            $table->unsignedBigInteger('product id');
+            $table->unsignedBigInteger('warehouse_id');
+            $table->unsignedBigInteger('product_id');
             $table->timestamps();
             $table->bigInteger('quantity');
         });
 
         Schema::table('hasProducts',function(Blueprint $table){
-            $table->foreign('product id')->references('id')->on('product');
+            $table->foreign('product_id')->references('id')->on('product');
         });
 
         
         Schema::table('hasProducts',function(Blueprint $table){
-            $table->foreign('warehouse id')->references('id')->on('warehouse');
+            $table->foreign('warehouse_id')->references('id')->on('warehouse');
         });
     }
 
