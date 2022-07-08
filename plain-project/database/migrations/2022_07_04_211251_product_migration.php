@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('product name');
             $table->bigInteger('price');
             $table->unsignedBigInteger('category id');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

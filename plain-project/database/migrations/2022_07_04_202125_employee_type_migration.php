@@ -18,6 +18,8 @@ return new class extends Migration
         Schema::create('employeetype', function (Blueprint $table) {
             $table->id();
             $table->string('employee type');
+            $table->softDeletes();
+            $table->timestamps();
         });
 
         
