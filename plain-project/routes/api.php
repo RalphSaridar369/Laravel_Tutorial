@@ -19,7 +19,7 @@ use App\Http\Controllers\WarehouseController;
 |
 */
 
-
+//Employee Route
 Route::group(
     [
         'middleware'=>'api',
@@ -41,6 +41,20 @@ Route::group(
             'deleteEmployee'
         ]);
         
+        Route::post('/register',[
+            EmployeeController::class,
+            'register'
+        ])
+        ->middleware([
+            'check-employee-type',
+            'check-warehouse'
+        ]);
+        
+        Route::post('/login',[
+            EmployeeController::class,
+            'login'
+        ]);
+        
         Route::post('/',[
             EmployeeController::class,
             'createEmployee'
@@ -53,7 +67,7 @@ Route::group(
     }
 );
 
-
+//Category Route
 Route::group(
     [
         'middleware'=>'api',
@@ -87,7 +101,7 @@ Route::group(
     }
 );
 
-
+//Employee Type Route
 Route::group(
     [
         'middleware'=>'api',
@@ -121,7 +135,7 @@ Route::group(
     }
 );
 
-
+//Product Route
 Route::group(
     [
         'middleware'=>'api',
@@ -155,6 +169,7 @@ Route::group(
     }
 );
 
+//Warehouse Route
 Route::group(
     [
         'middleware'=>'api',
