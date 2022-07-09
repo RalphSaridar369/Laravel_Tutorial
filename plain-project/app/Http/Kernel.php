@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\EmailExists;
 use App\Http\Middleware\WarehouseExists;
 use App\Http\Middleware\EmployeeTypeExists;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -67,5 +68,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'check-employee-type' => EmployeeTypeExists::class,
         'check-warehouse' => WarehouseExists::class,
+        'check-email' => EmailExists::class,
     ];
 }

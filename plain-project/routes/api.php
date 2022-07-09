@@ -46,6 +46,7 @@ Route::group(
             'register'
         ])
         ->middleware([
+            'check-email',
             'check-employee-type',
             'check-warehouse'
         ]);
@@ -60,6 +61,7 @@ Route::group(
             'createEmployee'
         ])
         ->middleware([
+            'check-email',
             'check-employee-type',
             'check-warehouse'
         ]);
@@ -69,6 +71,7 @@ Route::group(
             'updateEmployee'
         ])
         ->middleware([
+            'check-email',
             'check-employee-type',
             'check-warehouse'
         ]);
