@@ -18,9 +18,9 @@ class EmailExists
     public function handle(Request $request, Closure $next)
     {
         error_log('inside in the middleware'.$request);
-        $checkIfExists = Employee::where('id','=',$request->email)->get();
+        $checkIfExists = Employee::where('id',$request->email)->exists();
         error_log('result'.$checkIfExists);
-        if(sizeof($checkIfExists)<1)
+        if($checkIfExists)
             return response([
                 'status'=>'failed',
                 'message'=>'email already in use'

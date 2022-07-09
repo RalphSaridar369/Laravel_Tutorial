@@ -18,9 +18,9 @@ class EmployeeTypeExists
     public function handle(Request $request, Closure $next)
     {
         error_log('inside in the middleware'.$request);
-        $checkIfExists = EmployeeType::where('id','=',$request->employee_type_id)->get();
+        $checkIfExists = EmployeeType::where('id',$request->employee_type_id)->exists();
         error_log('result'.$checkIfExists);
-        if(sizeof($checkIfExists)<1)
+        if(!$checkIfExists)
             return response([
                 'status'=>'failed',
                 'message'=>'employee type doesn\'t exist'

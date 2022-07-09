@@ -18,9 +18,9 @@ class WarehouseExists
     public function handle(Request $request, Closure $next)
     {
         error_log('inside in the middleware' . $request);
-        $checkIfExists = Warehouse::where('id', '=', $request->warehouse_id)->get();
+        $checkIfExists = Warehouse::where('id',$request->warehouse_id)->exists();
         error_log('result' . $checkIfExists);
-        if (sizeof($checkIfExists) < 1)
+        if (!$checkIfExists)
             return response([
                 'status' => 'failed',
                 'message' => 'warehouse doesn\'t exist'
