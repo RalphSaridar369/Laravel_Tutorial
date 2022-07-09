@@ -58,11 +58,19 @@ Route::group(
         Route::post('/',[
             EmployeeController::class,
             'createEmployee'
+        ])
+        ->middleware([
+            'check-employee-type',
+            'check-warehouse'
         ]);
         
         Route::put('/{id}',[
             EmployeeController::class,
             'updateEmployee'
+        ])
+        ->middleware([
+            'check-employee-type',
+            'check-warehouse'
         ]);
     }
 );
