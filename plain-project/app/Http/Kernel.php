@@ -3,7 +3,9 @@
 namespace App\Http;
 
 use App\Http\Middleware\EmailExists;
+use App\Http\Middleware\CategoryExists;
 use App\Http\Middleware\WarehouseExists;
+use App\Http\Middleware\CategoryDoesExist;
 use App\Http\Middleware\EmployeeTypeExists;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -69,5 +71,7 @@ class Kernel extends HttpKernel
         'check-employee-type' => EmployeeTypeExists::class,
         'check-warehouse' => WarehouseExists::class,
         'check-email' => EmailExists::class,
+        'check-category' => CategoryExists::class,
+        'check-category-exists' => CategoryDoesExist::class,
     ];
 }

@@ -103,12 +103,14 @@ Route::group(
         Route::post('/',[
             CategoryController::class,
             'createCategory'
-        ]);
+        ])
+        ->middleware('check-category');
         
         Route::put('/{id}',[
             CategoryController::class,
             'updateCategory'
-        ]);
+        ])
+        ->middleware('check-category');
     }
 );
 
@@ -171,12 +173,14 @@ Route::group(
         Route::post('/',[
             ProductController::class,
             'createProduct'
-        ]);
+        ])
+        ->middleware('check-category-exists');
         
         Route::put('/{id}',[
             ProductController::class,
             'updateProduct'
-        ]);
+        ])
+        ->middleware('check-category-exists');
     }
 );
 
@@ -209,7 +213,7 @@ Route::group(
         
         Route::put('/{id}',[
             WarehouseController::class,
-            'updateWrehouse'
+            'updateWarehouse'
         ]);
     }
 );
