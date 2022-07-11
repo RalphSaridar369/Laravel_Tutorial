@@ -18,6 +18,6 @@ class WarehouseSeeder extends Seeder
     {
         //
         for ($i = 0; $i < 10; $i++)
-            Warehouse::create(['warehouse_name' => Str::random(10)]);
+            Warehouse::create(['warehouse_name' => "Warehouse ".Str::random(1)]);
     }
 }

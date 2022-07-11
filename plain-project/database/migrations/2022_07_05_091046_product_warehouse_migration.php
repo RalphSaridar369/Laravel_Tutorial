@@ -18,8 +18,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('warehouse_id');
             $table->unsignedBigInteger('product_id');
-            $table->timestamps();
             $table->bigInteger('quantity');
+            $table->timestamps();
         });
 
         Schema::table('hasProducts',function(Blueprint $table){
