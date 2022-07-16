@@ -36,11 +36,19 @@ class CategoryController extends Controller
 
     function createCategory(Category $cat, Request $req)
     {
-        return 'test';
+        Category::create(array_merge([
+            "category_name" => $req->category_name,
+        ]));
+
+        return $req;
     }
 
-    function updateCategory(Category $cat, Request $req)
+    function updateCategory(Category $cat, Request $req, $id)
     {
-        return 'test';
+        Category::where('id','=',$id)->update(array_merge([
+            "category_name" => $req->category_name,
+        ]));
+        
+        return $req;
     }
 }

@@ -35,11 +35,19 @@ class EmployeetypeController extends Controller
 
     function createEmployeeType(EmployeeType $emptype, Request $req)
     {
-        return 'test';
+        EmployeeType::create(array_merge([
+            "employee_type" => $req->employee_type,
+        ]));
+        
+        return $req;
     }
 
-    function updateEmployeeType(EmployeeType $emptype, Request $req)
+    function updateEmployeeType(EmployeeType $emptype, Request $req, $id)
     {
-        return 'test';
+        EmployeeType::where('id','=',$id)->update(array_merge([
+            "employee_type" => $req->employee_type,
+        ]));
+        
+        return $req;
     }
 }

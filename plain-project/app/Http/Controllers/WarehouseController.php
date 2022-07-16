@@ -35,11 +35,19 @@ class WarehouseController extends Controller
 
     function createWarehouse(Warehouse $warehouse, Request $req)
     {
-        return 'test';
+        Warehouse::create(array_merge([
+            "warehouse_name" => $req->warehouse_name,
+        ]));
+        
+        return $req;
     }
 
-    function updateWarehouse(Warehouse $product, Request $req)
+    function updateWarehouse(Warehouse $product, Request $req, $id)
     {
-        return 'test';
+        Warehouse::where('id','=',$id)->update(array_merge([
+            "warehouse_name" => $req->warehouse_name,
+        ]));
+        
+        return $req;
     }
 }

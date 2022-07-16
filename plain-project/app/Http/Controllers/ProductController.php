@@ -42,11 +42,23 @@ class ProductController extends Controller
 
     function createProduct(Product $product, Request $req)
     {
-        return 'test';
+        Product::create(array_merge([
+            "product_name"=>$req->product_name,
+            "price"=>$req->price,
+            "category_id"=>$req->category_id
+        ]));
+        
+        return $req;
     }
 
-    function updateProduct(Product $product, Request $req)
+    function updateProduct(Product $product, Request $req, $id)
     {
-        return 'test';
+        Product::where('id','=',$id)->update(array_merge([
+            "product_name"=>$req->product_name,
+            "price"=>$req->price,
+            "category_id"=>$req->category_id
+        ]));
+        
+        return $req;
     }
 }

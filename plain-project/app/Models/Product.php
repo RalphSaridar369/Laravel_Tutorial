@@ -13,7 +13,7 @@ class Product extends Model
 
     public $table = 'product';
     public $fillable = [
-        'product name',
+        'product_name',
         'price',
         'category_id'
     ];
