@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Employee;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -12,17 +13,19 @@ class EmployeeController extends Controller
     
     function register(Employee $emp, Request $req)
     {
-        error_log('inside the controller');
+        error_log($req->password);
+        Employee::create(array_merge([
+            "email" => $req->email,
+            "password" => Hash::make($req->password),
+            "employee_type_id" => $req->employee_type_id,
+            "warehouse_id" => $req->warehouse_id,
+        ]));
         return $req;
     }
 
     function login(Employee $emp, Request $req)
     {
         $checkEmail = $emp->where('email', '=', $req->email)->get();
-        $checkPassword = $emp->where([
-            'email' => $req->email,
-            'password' => $req->password
-        ])->get();
 
         if (sizeof($checkEmail) < 1) {
             return [
@@ -31,17 +34,19 @@ class EmployeeController extends Controller
             ];
         } 
 
-        else if (sizeof($checkPassword) < 1) {
+        else if (!Hash::check($req->password,$checkEmail[0]->password)) {
             return [
                 'status' => 'failed',
-                'message' => "wrong password exist"
+                'message' => "wrong password"
             ];
         }
 
         else{
+            unset($checkEmail[0]['password']);
             return [
                 'status' => 'success',
-                'message' => "successfully logged in"
+                'message' => "successfully logged in",
+                'data'=>$checkEmail[0]
             ];
         }
     }
@@ -74,11 +79,24 @@ class EmployeeController extends Controller
 
     function createEmployee(Employee $emp, Request $req)
     {
-        return 'test';
+        error_log($req->password);
+        Employee::create(array_merge([
+            "email" => $req->email,
+            "password" => Hash::make($req->password),
+            "employee_type_id" => $req->employee_type_id,
+            "warehouse_id" => $req->warehouse_id,
+        ]));
+        return $req;
     }
-
-    function updateEmployee(Employee $emp, Request $req)
+    function updateEmployee(Employee $emp, Request $req, $id)
     {
-        return 'test';
+        error_log($req->password);
+        Employee::where('id','=',$id)->update(array_merge([
+            "email" => $req->email,
+            "password" => Hash::make($req->password),
+            "employee_type_id" => $req->employee_type_id,
+            "warehouse_id" => $req->warehouse_id,
+        ]));
+        return $req;
     }
 }

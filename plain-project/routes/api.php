@@ -46,7 +46,6 @@ Route::group(
             'register'
         ])
         ->middleware([
-            'check-email',
             'check-employee-type',
             'check-warehouse'
         ]);
@@ -163,6 +162,11 @@ Route::group(
         Route::get('/{id}',[
             ProductController::class,
             'getProductById'
+        ]);
+
+        Route::get('/warehouse/{id}',[
+            ProductController::class,
+            'getAllProductsByWarehouse'
         ]);
         
         Route::delete('/{id}',[

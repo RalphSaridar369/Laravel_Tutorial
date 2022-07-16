@@ -21,6 +21,16 @@ class Warehouse extends Model
     }
 
     public function allproducts(){
-        return $this->belongsToMany('App\Models\Product');
+        return $this->belongsToMany('App\Models\Product')
+        ->withPivot(
+            'warehouse_id',
+            'product_id',
+            'quantity',
+        );
+        ;
     }
+    
+    // public function allproducts(){
+    //     return $this->belongsToMany('App\Models\Product');
+    // }
 }

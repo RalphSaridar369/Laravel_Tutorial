@@ -18,6 +18,12 @@ class ProductController extends Controller
         return $product->with('category')->where('id','=',$id)->get();
     }
 
+    function getAllProductsByWarehouse(Product $product, $id)
+    {
+        return $product->allWarehouse->where('warehouse_id','=',$id)->get();
+
+    }
+
     function deleteProduct(Product $product, $id)
     {
         if (!$product->where('id','=',$id)) {
