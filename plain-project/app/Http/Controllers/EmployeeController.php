@@ -10,7 +10,11 @@ class EmployeeController extends Controller
 {
     //
 
-    
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['login']]);
+    }
+
     function register(Employee $emp, Request $req)
     {
         error_log($req->password);
@@ -32,22 +36,27 @@ class EmployeeController extends Controller
                 'status' => 'failed',
                 'message' => "user doesn't exist"
             ];
-        } 
-
-        else if (!Hash::check($req->password,$checkEmail[0]->password)) {
+        } else if (!Hash::check($req->password, $checkEmail[0]->password)) {
             return [
                 'status' => 'failed',
                 'message' => "wrong password"
             ];
-        }
+        } else {
 
-        else{
+            $credentials = request(['email', 'password']);
+
+
+            if (!$token = auth()->attempt($credentials)) {
+                return response()->json(['error' => 'Unauthorized'], 401);
+            }
+
+
+            return $this->respondWithToken($token);
             unset($checkEmail[0]['password']);
-            // $this->createNewToken($token);
             return [
                 'status' => 'success',
                 'message' => "successfully logged in",
-                'data'=>$checkEmail[0]
+                'data' => $checkEmail[0]
             ];
         }
     }
@@ -92,12 +101,22 @@ class EmployeeController extends Controller
     function updateEmployee(Employee $emp, Request $req, $id)
     {
         error_log($req->password);
-        Employee::where('id','=',$id)->update(array_merge([
+        Employee::where('id', '=', $id)->update(array_merge([
             "email" => $req->email,
             "password" => Hash::make($req->password),
             "employee_type_id" => $req->employee_type_id,
             "warehouse_id" => $req->warehouse_id,
         ]));
         return $req;
+    }
+
+    
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            // 'expires_in' => auth()->factory()->getTTL() * 60
+        ]);
     }
 }

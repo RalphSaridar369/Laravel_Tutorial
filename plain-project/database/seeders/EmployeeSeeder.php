@@ -7,6 +7,7 @@ use App\Models\Warehouse;
 use Illuminate\Support\Str;
 use App\Models\EmployeeType;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class EmployeeSeeder extends Seeder
@@ -28,7 +29,7 @@ class EmployeeSeeder extends Seeder
             Employee::create(
                 [
                     'email' => Str::random(10).'@hotmail.com',
-                    'password' => Str::random(10),
+                    'password' => Hash::make('password'),
                     'employee_type_id' => $employee_type_id,
                     'warehouse_id' => $warehouse_id,
                     ]
