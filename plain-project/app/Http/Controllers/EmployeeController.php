@@ -43,6 +43,7 @@ class EmployeeController extends Controller
 
         else{
             unset($checkEmail[0]['password']);
+            // $this->createNewToken($token);
             return [
                 'status' => 'success',
                 'message' => "successfully logged in",
