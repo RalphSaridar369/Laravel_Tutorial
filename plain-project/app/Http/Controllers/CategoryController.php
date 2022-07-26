@@ -2,12 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
-    //
+    //validators
+
+    function validateCreateAndUpdate()
+    {
+        return Validator::make(request()->all(),[
+            "category_name" => "required | string | min:8"
+        ]);
+    }
+
+    //calls
+
     function getAllCategories(Category $cat)
     {
         return $cat->with('getAllProducts')->get();
@@ -36,6 +47,10 @@ class CategoryController extends Controller
 
     function createCategory(Category $cat, Request $req)
     {
+        $checkForErrors = $this->validateCreateAndUpdate();
+        if($checkForErrors->fails()){
+            return $checkForErrors->errors();
+        }
         Category::create(array_merge([
             "category_name" => $req->category_name,
         ]));
@@ -45,6 +60,10 @@ class CategoryController extends Controller
 
     function updateCategory(Category $cat, Request $req, $id)
     {
+        $checkForErrors = $this->validateCreateAndUpdate();
+        if($checkForErrors->fails()){
+            return $checkForErrors->errors();
+        }
         Category::where('id','=',$id)->update(array_merge([
             "category_name" => $req->category_name,
         ]));
