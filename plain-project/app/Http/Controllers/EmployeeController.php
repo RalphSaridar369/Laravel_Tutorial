@@ -13,10 +13,10 @@ class EmployeeController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => [
-            'login',
-            'register'
-            ]]);
+        // $this->middleware('auth:api', ['except' => [
+        //     'login',
+        //     'register'
+        //     ]]);
     }
 
     function register(Employee $emp, Request $req)
@@ -95,6 +95,7 @@ class EmployeeController extends Controller
 
     function createEmployee(Employee $emp, Request $req)
     {
+        // return $req->bearerToken();
         error_log($req->password);
         Employee::create(array_merge([
             "email" => $req->email,
