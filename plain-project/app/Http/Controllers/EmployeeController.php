@@ -10,9 +10,13 @@ class EmployeeController extends Controller
 {
     //
 
+
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => [
+            'login',
+            'register'
+            ]]);
     }
 
     function register(Employee $emp, Request $req)
@@ -51,12 +55,14 @@ class EmployeeController extends Controller
             }
 
 
-            return $this->respondWithToken($token);
+            $access = $this->respondWithToken($token);
             unset($checkEmail[0]['password']);
             return [
                 'status' => 'success',
                 'message' => "successfully logged in",
-                'data' => $checkEmail[0]
+                'data' => $checkEmail[0],
+                'access_token' => $access->original
+
             ];
         }
     }
@@ -110,13 +116,22 @@ class EmployeeController extends Controller
         return $req;
     }
 
-    
-    // protected function respondWithToken($token)
-    // {
-    //     return response()->json([
-    //         'access_token' => $token,
-    //         'token_type' => 'bearer',
-    //         // 'expires_in' => auth()->factory()->getTTL() * 60
-    //     ]);
-    // }
+
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+        ]);
+    }
+
+
+    protected function createNewToken($token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'user' => auth()->user()
+        ]);
+    }
 }
