@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\IsLoggedIn;
 use App\Http\Middleware\EmailExists;
 use App\Http\Middleware\CategoryExists;
 use App\Http\Middleware\WarehouseExists;
@@ -73,5 +74,6 @@ class Kernel extends HttpKernel
         'check-email' => EmailExists::class,
         'check-category' => CategoryExists::class,
         'check-category-exists' => CategoryDoesExist::class,
+        'is-logged-in' => IsLoggedIn::class,
     ];
 }

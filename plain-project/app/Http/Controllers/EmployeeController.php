@@ -55,7 +55,7 @@ class EmployeeController extends Controller
             }
 
 
-            $access = $this->respondWithToken($token);
+            $access = $this->createNewToken($token);
             unset($checkEmail[0]['password']);
             return [
                 'status' => 'success',

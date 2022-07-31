@@ -1,2 +1,2 @@
 pivot
-JWT
+permissions
