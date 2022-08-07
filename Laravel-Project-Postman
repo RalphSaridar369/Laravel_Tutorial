@@ -11,6 +11,16 @@
 				{
 					"name": "Get All Employees",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2VtcGxveWVlcy9sb2dpbiIsImlhdCI6MTY1OTI5MjA2MywiZXhwIjoxNjU5Mjk1NjYzLCJuYmYiOjE2NTkyOTIwNjMsImp0aSI6IlVXYjRGaENqZUNsN0NsMDMiLCJzdWIiOiI0MSIsInBydiI6IjMyOTYzYTYwNmMyZjE3MWYxYzE0MzMxZTc2OTc2NmNkNTkxMmVkMTUifQ.29f6-EME8NkrCgkwxMKVzQx8L9z_3Xl-YG9rBKa_VE0",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -34,6 +44,16 @@
 				{
 					"name": "Get Employee By Id",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2VtcGxveWVlcy9sb2dpbiIsImlhdCI6MTY1OTI5MjA2MywiZXhwIjoxNjU5Mjk1NjYzLCJuYmYiOjE2NTkyOTIwNjMsImp0aSI6IlVXYjRGaENqZUNsN0NsMDMiLCJzdWIiOiI0MSIsInBydiI6IjMyOTYzYTYwNmMyZjE3MWYxYzE0MzMxZTc2OTc2NmNkNTkxMmVkMTUifQ.29f6-EME8NkrCgkwxMKVzQx8L9z_3Xl-YG9rBKa_VE0",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -82,6 +102,16 @@
 				{
 					"name": "Create Employee",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2VtcGxveWVlcy9sb2dpbiIsImlhdCI6MTY1OTIwOTkzNywiZXhwIjoxNjU5MjEzNTM3LCJuYmYiOjE2NTkyMDk5MzcsImp0aSI6Im84UVlsVWpRTjJGdzFXcHUiLCJzdWIiOiI0MSIsInBydiI6IjMyOTYzYTYwNmMyZjE3MWYxYzE0MzMxZTc2OTc2NmNkNTkxMmVkMTUifQ.IoPO3k8UrnnqNSwxtW9s9PNIfL_oNZvViseTM5cXsrk",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -118,7 +148,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"test@gmail.com\",\r\n    \"password\":\"test@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"email\":\"test@gmail2221.com\",\r\n    \"password\":\"test@gmail1.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -151,7 +181,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"test@gmail1.com\",\r\n    \"password\":\"test@gmail.com\",\r\n    \"employee_type_id\":3,\r\n    \"warehouse_id\":1\r\n}",
+							"raw": "{\r\n    \"email\":\"test@gmail2221.com\",\r\n    \"password\":\"test@gmail1.com\",\r\n    \"employee_type_id\":1,\r\n    \"warehouse_id\":1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -217,6 +247,16 @@
 				{
 					"name": "Get All Categories",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2VtcGxveWVlcy9sb2dpbiIsImlhdCI6MTY1OTI5MjA2MywiZXhwIjoxNjU5Mjk1NjYzLCJuYmYiOjE2NTkyOTIwNjMsImp0aSI6IlVXYjRGaENqZUNsN0NsMDMiLCJzdWIiOiI0MSIsInBydiI6IjMyOTYzYTYwNmMyZjE3MWYxYzE0MzMxZTc2OTc2NmNkNTkxMmVkMTUifQ.29f6-EME8NkrCgkwxMKVzQx8L9z_3Xl-YG9rBKa_VE0",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -292,7 +332,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"category_name\":\"Category B\"\r\n}",
+							"raw": "{\r\n    \"category_name\":\"Category C\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -324,7 +364,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"category_name\":\"Category A\"\r\n}",
+							"raw": "{\r\n    \"category_name\":\"Category D\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -332,7 +372,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/categories/4",
+							"raw": "http://127.0.0.1:8000/api/categories/3",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -344,7 +384,7 @@
 							"path": [
 								"api",
 								"categories",
-								"4"
+								"3"
 							]
 						}
 					},
@@ -358,6 +398,16 @@
 				{
 					"name": "Get All Product",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2VtcGxveWVlcy9sb2dpbiIsImlhdCI6MTY1OTg5ODY3NiwiZXhwIjoxNjU5OTAyMjc2LCJuYmYiOjE2NTk4OTg2NzYsImp0aSI6InZ0Tkh1TXFSNlZDc0s3SWYiLCJzdWIiOiI0MSIsInBydiI6IjMyOTYzYTYwNmMyZjE3MWYxYzE0MzMxZTc2OTc2NmNkNTkxMmVkMTUifQ.VWc0_5cxEfbpA2eK8Wq5vfv7g12EV4x-1bGeikKZB00",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -384,7 +434,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/products/1",
+							"raw": "http://127.0.0.1:8000/api/products/product/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -396,7 +446,33 @@
 							"path": [
 								"api",
 								"products",
+								"product",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products by Warehouse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/warehouse/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"warehouse",
+								"4"
 							]
 						}
 					},
@@ -433,7 +509,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"product_name\":\"product A\",\r\n    \"price\":200,\r\n    \"category_id\":2\r\n}",
+							"raw": "{\r\n    \"product_name\":\"product B\",\r\n    \"price\":200,\r\n    \"category_id\":2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -465,7 +541,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"product_name\":\"product A\",\r\n    \"price\":200,\r\n    \"category_id\":2\r\n}",
+							"raw": "{\r\n    \"product_name\":\"product CBA\",\r\n    \"price\":300,\r\n    \"category_id\":2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -473,7 +549,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/products/4",
+							"raw": "http://127.0.0.1:8000/api/products/11",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -485,7 +561,111 @@
 							"path": [
 								"api",
 								"products",
-								"4"
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products Warehouse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2VtcGxveWVlcy9sb2dpbiIsImlhdCI6MTY1OTg5ODY3NiwiZXhwIjoxNjU5OTAyMjc2LCJuYmYiOjE2NTk4OTg2NzYsImp0aSI6InZ0Tkh1TXFSNlZDc0s3SWYiLCJzdWIiOiI0MSIsInBydiI6IjMyOTYzYTYwNmMyZjE3MWYxYzE0MzMxZTc2OTc2NmNkNTkxMmVkMTUifQ.VWc0_5cxEfbpA2eK8Wq5vfv7g12EV4x-1bGeikKZB00",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/all-warehouse-quantity/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"all-warehouse-quantity",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products Quantities by ProductId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2VtcGxveWVlcy9sb2dpbiIsImlhdCI6MTY1OTg5ODY3NiwiZXhwIjoxNjU5OTAyMjc2LCJuYmYiOjE2NTk4OTg2NzYsImp0aSI6InZ0Tkh1TXFSNlZDc0s3SWYiLCJzdWIiOiI0MSIsInBydiI6IjMyOTYzYTYwNmMyZjE3MWYxYzE0MzMxZTc2OTc2NmNkNTkxMmVkMTUifQ.VWc0_5cxEfbpA2eK8Wq5vfv7g12EV4x-1bGeikKZB00",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/all-products-by-warehouse/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"all-products-by-warehouse",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products Quantities by WarehouseId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2VtcGxveWVlcy9sb2dpbiIsImlhdCI6MTY1OTg5ODY3NiwiZXhwIjoxNjU5OTAyMjc2LCJuYmYiOjE2NTk4OTg2NzYsImp0aSI6InZ0Tkh1TXFSNlZDc0s3SWYiLCJzdWIiOiI0MSIsInBydiI6IjMyOTYzYTYwNmMyZjE3MWYxYzE0MzMxZTc2OTc2NmNkNTkxMmVkMTUifQ.VWc0_5cxEfbpA2eK8Wq5vfv7g12EV4x-1bGeikKZB00",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/all-products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"all-products"
 							]
 						}
 					},
@@ -499,6 +679,16 @@
 				{
 					"name": "Get All Warehouses",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2VtcGxveWVlcy9sb2dpbiIsImlhdCI6MTY1OTg4NDQ4OSwiZXhwIjoxNjU5ODg4MDg5LCJuYmYiOjE2NTk4ODQ0ODksImp0aSI6IjZYbjJLNWEyZlJKQ0N3aEgiLCJzdWIiOiI0MSIsInBydiI6IjMyOTYzYTYwNmMyZjE3MWYxYzE0MzMxZTc2OTc2NmNkNTkxMmVkMTUifQ.NEl3E3LAGUgMIxt_LjPHGkwwGbYKjah49QUeCfj5_3I",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -574,7 +764,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"warehouse_name\":\"Warehouse A\"\r\n}",
+							"raw": "{\r\n    \"warehouse_name\":\"Warehouse ABC\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -606,7 +796,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"warehouse_name\":\"Warehouse A\"\r\n}",
+							"raw": "{\r\n    \"warehouse_name\":\"Warehouse CBA\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -614,7 +804,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/warehouses/4",
+							"raw": "http://127.0.0.1:8000/api/warehouses/11",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -626,7 +816,7 @@
 							"path": [
 								"api",
 								"warehouses",
-								"4"
+								"11"
 							]
 						}
 					},
@@ -715,7 +905,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"employee_type\":\"Worker\"\r\n}",
+							"raw": "{\r\n    \"employee_type\":\"Worker B\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -747,7 +937,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"employee_type\":\"Worker\"\r\n}",
+							"raw": "{\r\n    \"employee_type\":\"Worker C\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -755,7 +945,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/employeetype/4",
+							"raw": "http://127.0.0.1:8000/api/employeetype/3",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -767,7 +957,7 @@
 							"path": [
 								"api",
 								"employeetype",
-								"4"
+								"3"
 							]
 						}
 					},

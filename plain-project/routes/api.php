@@ -165,17 +165,27 @@ Route::group(
     function ($router) {
         Route::get('/', [
             ProductController::class,
-            'getAllProducts'
+            'index'
         ]);
 
-        Route::get('/{id}', [
+        Route::get('/product/id', [
             ProductController::class,
             'getProductById'
         ]);
 
-        Route::get('/get', [
+        Route::get('/all-products', [
             ProductController::class,
-            'getEverything'
+            'getAllProductsWarehouse'
+        ]);
+
+        Route::get('/all-warehouse-quantity/{productid}', [
+            ProductController::class,
+            'getProductQuantityByProductId'
+        ]);
+
+        Route::get('/all-products-by-warehouse/{warehouseid}', [
+            ProductController::class,
+            'getProductsByWarehouseId'
         ]);
 
         Route::get('/warehouse/{id}', [

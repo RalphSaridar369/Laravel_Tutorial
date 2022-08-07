@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
@@ -20,7 +21,7 @@ class ProductController extends Controller
     }
 
     //calls
-    function getAllProducts(Product $product)
+    function index(Product $product)
     {
         return $product->with('category')->get();
     }
@@ -53,7 +54,7 @@ class ProductController extends Controller
 
     function createProduct(Product $product, Request $req)
     {
-        
+
         $checkForErrors = $this->validateCreateAndUpdate();
         if ($checkForErrors->fails()) {
             return $checkForErrors->errors();
@@ -69,7 +70,7 @@ class ProductController extends Controller
 
     function updateProduct(Product $product, Request $req, $id)
     {
-        
+
         $checkForErrors = $this->validateCreateAndUpdate();
         if ($checkForErrors->fails()) {
             return $checkForErrors->errors();
@@ -83,7 +84,30 @@ class ProductController extends Controller
         return $req;
     }
 
-    function getEverything(Product $product){
-        return $product->allWarehouse();
+    function getAllProductsWarehouse()
+    {
+        return DB::table('hasProducts')->get();
+    }
+
+    function getProductQuantityByProductId($id)
+    {
+        $data = DB::table('hasProducts')->where('product_id', $id)->get();
+        $count = $data->count();
+        $sum = $data->sum('quantity');
+        return [
+            "data" => $data,
+            "count" => $count,
+            "total quantity"=>$sum
+        ];
+    }
+
+    function getProductsByWarehouseId($id)
+    {
+        $data = DB::table('hasProducts')->where('warehouse_id', $id)->get();
+        $sum = $data->sum('quantity');
+        return [
+            "data" => $data,
+            "total quantity"=>$sum
+        ];
     }
 }
