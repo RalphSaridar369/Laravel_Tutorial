@@ -61,7 +61,7 @@ class EmployeeController extends Controller
                 'status' => 'success',
                 'message' => "successfully logged in",
                 'data' => $checkEmail[0],
-                'access_token' => $access->original
+                'access_token' => $access->original['access_token']
 
             ];
         }

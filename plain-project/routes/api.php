@@ -22,7 +22,7 @@ use App\Http\Controllers\WarehouseController;
 //Employee Route
 Route::group(
     [
-        'middleware' => ['api','is-logged-in'],
+        'middleware' => ['api'],
         'prefix' => 'employees',
     ],
     function ($router) {
@@ -171,6 +171,11 @@ Route::group(
         Route::get('/{id}', [
             ProductController::class,
             'getProductById'
+        ]);
+
+        Route::get('/get', [
+            ProductController::class,
+            'getEverything'
         ]);
 
         Route::get('/warehouse/{id}', [

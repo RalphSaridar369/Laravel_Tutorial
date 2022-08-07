@@ -20,7 +20,7 @@ class Product extends Model
 
 
     public function allWarehouse(){
-        return $this->belongsToMany('App\Models\Warehouse')
+        return $this->belongsToMany('App\Models\Product')
         ->withPivot(
             'warehouse_id',
             'product_id',

@@ -82,4 +82,8 @@ class ProductController extends Controller
 
         return $req;
     }
+
+    function getEverything(Product $product){
+        return $product->allWarehouse();
+    }
 }
