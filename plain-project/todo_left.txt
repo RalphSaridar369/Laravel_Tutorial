@@ -1,5 +1,20 @@
 this is for permissions
 
+- Install Jwt Tymon Authentication
+- Set up jwt: vendor publish, jwt generate secret key,
+- Manage the guards and providers in config/auth.php
+- Make Models of Users in guards
+- Manage Controllers of users in guards (put Authenticatable, login, logout, and token functions)
+- Make AssignGuard Middleware (assign guards and authenticate token)
+- Make Validation Requests for login and put them in Controller
+- Manage routes using middleware
+
+Using Multi-guards Authorization and JWT Authentication to set different routes for different admins/users.
+References:
+- JWT By Khaldoun
+- [Article from Net](https://jinoantony.com/blog/multi-user-api-authentication-using-laravel-jwt)
+- Mohammad and Hassan added sth to Middleware to make it work
+
 <?php
 
 namespace App\Http\Middleware;
